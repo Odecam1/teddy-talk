@@ -21,15 +21,14 @@ public class Quote {
 	}
 
 	@JsonCreator
-	public Quote(
-			@JsonProperty("content") String content
-			) {
+	public Quote(@JsonProperty("content") String content) {
 		this.content = content;
 	}
 
 	public String getContent() {
 		return content;
 	}
+
 	public void setContent(String content) {
 		this.content = content;
 	}

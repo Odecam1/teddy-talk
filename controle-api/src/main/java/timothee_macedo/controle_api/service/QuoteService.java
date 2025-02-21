@@ -23,4 +23,9 @@ public class QuoteService {
 		quoteRepository.save(quote);
 	}
 
+	public Quote findById(Integer quoteId) {
+		return quoteRepository.findById(quoteId)
+                .orElseThrow(() -> new RuntimeException("Quote not found with ID: " + quoteId));
+	}
+
 }
