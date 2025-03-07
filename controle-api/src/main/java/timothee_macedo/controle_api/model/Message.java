@@ -1,8 +1,11 @@
 package timothee_macedo.controle_api.model;
 
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,6 +27,9 @@ public class Message {
     @JoinColumn(name = "quote_id", referencedColumnName = "id")
 	private Quote quote;
 	
+	@Column(nullable = false)
+    private LocalDateTime timestamp;
+	
 	public Message() {
 	}
 
@@ -42,8 +48,9 @@ public class Message {
 			@JsonProperty("quote") Quote quote
 			) {
 		this.authorName = authorName;
-		this.content =content;
+		this.content = content;
 		this.setQuote(quote);
+		this.timestamp = LocalDateTime.now();
 	}
 
 

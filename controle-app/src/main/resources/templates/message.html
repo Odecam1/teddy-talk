@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teddy Talk</title>
+  </head>
+  <body>
+    <form action="/message" method="post">
+      <div>
+        <label for="authorName">Nom</label>
+        <input th:text="${message.authorName}" type="text" name="authorName" />
+      </div>
+      <div>
+        <label for="authorName">contenus</label>
+        <textarea
+          th:text="${message.content}"
+          type="text"
+          name="content"
+        ></textarea>
+      </div>
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <p th:text="${message.quote.content}"></p>
+  </body>
+</html>
